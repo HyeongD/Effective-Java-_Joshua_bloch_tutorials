@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public abstract class Pizza {
-	public enum Topping { HAM, MUSHROOM, ONION,PEPPER, SAUSAGE }
+	public static enum Topping { HAM, MUSHROOM, ONION,PEPPER, SAUSAGE }
 	final Set<Topping> toppings;
 	
 	abstract static class Builder<T extends Builder<T>>{
@@ -16,10 +16,20 @@ public abstract class Pizza {
 			return self();
 		}
 		
+		// use 
+		//abstract <T extends Pizza> T build();
+		//or
 		abstract Pizza build();
 		
 		// Subclasses must override this method to return "this"
 		protected abstract T self();
+
+		
+
+//		public NyPizza buid() {
+//			// TODO Auto-generated method stub
+//			return null;
+//		}
 	}
 	
 	Pizza(Builder<?> builder){
